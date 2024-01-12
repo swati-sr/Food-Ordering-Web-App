@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { cloudinaryImageUrl } from "./constant";
 
-const Card = ({ image, name, cuisine, rating }) => {
+const Card = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
   return (
     <div className="box">
       <ul>
-        <img alt="restaurant Image" src={image}></img>
+        <img
+          alt="restaurant Image"
+          src={cloudinaryImageUrl + cloudinaryImageId}
+        ></img>
         <li>{name}</li>
-        <li>{cuisine}</li>
-        <li>{rating} stars</li>
+        <li>{cuisines}</li>
+        <li>{avgRating} stars</li>
       </ul>
     </div>
   );

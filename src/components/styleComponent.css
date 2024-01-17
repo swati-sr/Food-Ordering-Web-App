@@ -38,13 +38,9 @@
   display: flex;
   flex-direction: row;
   width: 99%;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-/* .box > ul {
-  border: 1px solid #0a0a07;
-  border-radius: 15px;
-} */
 .box > ul > img {
   padding-top: 10px;
   padding-right: 40px;
@@ -52,10 +48,11 @@
   width: 208px;
 }
 .box > ul > li {
-  padding-bottom: 6px;
+  /* padding-bottom: 6px; */
   list-style: none;
   font-weight: 400;
-  padding-right: 6px;
+  /* padding-right: 6px; */
+  width: 167px;
 }
 
 /* search section  */

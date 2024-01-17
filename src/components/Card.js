@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { cloudinaryImageUrl } from "./constant";
 
-const Card = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
+const Card = ({
+  cloudinaryImageId,
+  cuisines,
+  areaName,
+  name,
+  avgRatingString,
+}) => {
   return (
     <div className="box">
       <ul>
@@ -10,8 +16,9 @@ const Card = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
           src={cloudinaryImageUrl + cloudinaryImageId}
         ></img>
         <li>{name}</li>
-        <li>{cuisines}</li>
-        <li>{avgRating} stars</li>
+        <li>{areaName}</li>
+        <li>{cuisines.join(", ")}</li>
+        <li>{avgRatingString} stars</li>
       </ul>
     </div>
   );

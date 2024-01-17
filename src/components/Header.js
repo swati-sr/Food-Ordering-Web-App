@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./assets/logo.jpg";
 import style from "./styleComponent.css";
+import { useState } from "react";
 
 const Title = () => {
   return (
@@ -11,6 +12,7 @@ const Title = () => {
 };
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="header">
       <img alt="logo" src={logo} className="logo"></img>
@@ -25,6 +27,13 @@ const Header = () => {
           </li>
           <li>
             <a href="/contact">Contact</a>
+          </li>
+          <li>
+            {isLoggedIn ? (
+              <button onClick={() => setIsLoggedIn(false)}>Login</button>
+            ) : (
+              <button onClick={() => setIsLoggedIn(true)}>Logout</button>
+            )}
           </li>
         </ul>
       </div>

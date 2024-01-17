@@ -1,19 +1,45 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React, { useEffect } from "react";
 import Header from "../Header";
 import Card from "../Card";
-import { restaurantList } from "../constant";
 import { useState } from "react";
+// import { ShimmerThumbnail, ShimmerButton } from "react-shimmer-effects";
+import Shimmer from "../Shimmer";
 
-function filteredData(searchText, restaurants) {
-  const filerData = restaurants.filter((restaurant) => {
-    return restaurant.data.name.includes(searchText);
+//function for searching restaurant
+function filteredData(searchText, allRestroList) {
+  const filterData = allRestroList.filter((restaurant) => {
+    return restaurant.info.name.includes(searchText);
   });
-  return filerData;
+  return filterData;
 }
+
+//Default exported Component
 const Home = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [filteredRestroList, setFilteredRestroList] = useState([]);
+  const [allRestroList, setAllRestroList] = useState([]);
+
+  useEffect(() => {
+    getRestaurantsData();
+  }, []);
+
+  //fetch data from API and setting the value below
+  async function getRestaurantsData() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    setAllRestroList(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestroList(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
+  if (!allRestroList) {
+    return null;
+  }
+
   return (
     <>
       <Header />
@@ -30,19 +56,26 @@ const Home = () => {
         <button
           className="searchButton"
           onClick={() => {
-            console.log("Hi");
-            const data = filteredData(searchText, restaurants);
-            setRestaurants(data);
+            const data = filteredData(searchText, allRestroList);
+            setFilteredRestroList(data);
           }}
         >
           Search
         </button>
       </div>
-      <div className="wrapper">
-        {restaurants.map((restaurant) => {
-          return <Card key={restaurant.data.id} {...restaurant.data} />;
-        })}
-      </div>
+      {allRestroList.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="wrapper">
+          {filteredRestroList.map((restaurant) => {
+            return (
+              <>
+                <Card key={restaurant?.info?.id} {...restaurant?.info} />
+              </>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

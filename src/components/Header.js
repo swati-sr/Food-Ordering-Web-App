@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./assets/logo.jpg";
 import style from "./styleComponent.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
@@ -19,15 +20,18 @@ const Header = () => {
       <Title />
       <div className="navBar">
         <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
+          <Link to="/">
+            {" "}
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            {" "}
+            <li>About</li>
+          </Link>
+          <Link to="/contact">
+            {" "}
+            <li>Contact</li>
+          </Link>
           <li>
             {isLoggedIn ? (
               <button onClick={() => setIsLoggedIn(false)}>Login</button>

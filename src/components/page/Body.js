@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import Header from "../Header";
 import Card from "../Card";
 import { useState } from "react";
-// import { ShimmerThumbnail, ShimmerButton } from "react-shimmer-effects";
 import Shimmer from "../Shimmer";
+import { Link } from "react-router-dom";
 
 //function for searching restaurant
 function filteredData(searchText, allRestroList) {
@@ -14,7 +13,7 @@ function filteredData(searchText, allRestroList) {
 }
 
 //Default exported Component
-const Home = () => {
+const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestroList, setFilteredRestroList] = useState([]);
   const [allRestroList, setAllRestroList] = useState([]);
@@ -42,7 +41,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <div className="searchBar">
         <input
           type="text"
@@ -70,7 +68,12 @@ const Home = () => {
           {filteredRestroList.map((restaurant) => {
             return (
               <>
-                <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                <Link
+                  to={"/restaurant/" + restaurant?.info?.id}
+                  key={restaurant?.info?.id}
+                >
+                  <Card {...restaurant?.info} />
+                </Link>
               </>
             );
           })}
@@ -80,4 +83,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Body;

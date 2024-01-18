@@ -4,7 +4,6 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: #efde1394;
-  position: fixed;
   width: 99%;
   align-items: center;
   top: 0px;
@@ -82,3 +81,11 @@
   font-weight: 900;
   cursor: pointer;
 }
+
+/* style for shimmering */
+/* .shimmerEffect {
+  background-color:lightgray;
+  height: 222px;
+  width: 208px;
+  margin: 20px;
+} */

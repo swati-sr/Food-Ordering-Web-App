@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./src/components/page/Error";
 import RestaurantMenu from "./src/components/page/RestaurantMenu";
 import Profile from "./src/components/page/Profile";
-const Instamart = lazy(() => import("./src/components/Instamart"));
+const Instamart = lazy(() => import("./src/components/page/Instamart"));
 
 const Container = () => {
   return (

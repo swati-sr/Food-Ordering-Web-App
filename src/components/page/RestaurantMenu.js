@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
-  let { id } = useParams();
-  const [restaurantEat, setRestaurantEat] = useState(null);
+  let { restId } = useParams();
+  const [restaurantEat, setRestaurantEat] = useState([]);
 
   useEffect(() => {
     getRestaurantEat();
@@ -11,20 +11,26 @@ const RestaurantMenu = () => {
 
   async function getRestaurantEat() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=" +
-        id
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.21290&lng=81.42940&restaurantId=" +
+        restId +
+        "&catalog_qa=undefined&submitAction=ENTER"
     );
     const json = await data.json();
-    console.log(json.data);
-    setRestaurantEat(json.data);
+    setRestaurantEat(
+      json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+        ?.card?.itemCards
+    );
   }
+
   return (
-    <div>{id}</div>
-    // <ul>
-    //   {Object.values(restaurantEat?.menu?.items).map((item) => (
-    //     <li key={item.id}>{item.name}</li>
-    //   ))}
-    // </ul>
+    <div className="menuPage">
+      <h2>Menu</h2>
+      <ul>
+        {restaurantEat.map((item) => (
+          <li key={item?.card?.info?.id}>{item?.card?.info?.name}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

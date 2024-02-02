@@ -89,3 +89,9 @@
   width: 208px;
   margin: 20px;
 } */
+
+.menuPage {
+  display: flex;
+  margin: 10px;
+  gap: 20%;
+}

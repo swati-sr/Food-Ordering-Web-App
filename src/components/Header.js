@@ -32,6 +32,10 @@ const Header = () => {
             {" "}
             <li>Contact</li>
           </Link>
+          <Link to="/instamart">
+            {" "}
+            <li>Instamart</li>
+          </Link>
           <li>
             {isLoggedIn ? (
               <button onClick={() => setIsLoggedIn(false)}>Login</button>

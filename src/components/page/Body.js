@@ -1,42 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "../Card";
 import { useState } from "react";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
-
-//function for searching restaurant
-function filteredData(searchText, allRestroList) {
-  const filterData = allRestroList.filter((restaurant) => {
-    return restaurant.info.name.includes(searchText);
-  });
-  return filterData;
-}
+import { filteredData } from "../utils/helper";
+import useRestaurantsListed from "../utils/useRestaurantsListed";
+import useIsOnline from "../utils/useIsOnline";
 
 //Default exported Component
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [filteredRestroList, setFilteredRestroList] = useState([]);
-  const [allRestroList, setAllRestroList] = useState([]);
+  const { allRestroList, filteredRestroList, setFilteredRestroList } =
+    useRestaurantsListed();
+  const isOnline = useIsOnline();
 
-  useEffect(() => {
-    getRestaurantsData();
-  }, []);
-
-  //fetch data from API and setting the value below
-  async function getRestaurantsData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    setAllRestroList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestroList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  }
-  if (!allRestroList) {
-    return null;
+  if (!isOnline) {
+    return <h2>Oopssss, Check your network issue !</h2>;
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { cloudinaryImageUrl } from "./constant";
+import { CLI_CLOUDINARY_IMAGE_ID } from "./constant";
 
 const Card = ({
   cloudinaryImageId,
@@ -13,7 +13,7 @@ const Card = ({
       <ul>
         <img
           alt="restaurant Image"
-          src={cloudinaryImageUrl + cloudinaryImageId}
+          src={CLI_CLOUDINARY_IMAGE_ID + cloudinaryImageId}
         ></img>
         <li>{name}</li>
         <li>{areaName}</li>

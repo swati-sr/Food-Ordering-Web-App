@@ -1,5 +1,13 @@
-export const cloudinaryImageUrl =
+export const CLI_CLOUDINARY_IMAGE_ID =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+
+export const CLI_RESTROLIST_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
+
+export const CLI_RESTROMENU_URL_FIRST =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.21290&lng=81.42940&restaurantId=";
+export const CLI_RESTROMENU_URL_END =
+  "&catalog_qa=undefined&submitAction=ENTER";
 
 export const restaurantList = [
   {

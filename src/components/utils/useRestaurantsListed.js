@@ -11,7 +11,7 @@ const useRestaurantsListed = () => {
 
   async function getRestaurantsData() {
     const data = await fetch(CLI_RESTROLIST_URL);
-    const json = await data.json();
+    const json = await data?.json();
     const restaurants =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;

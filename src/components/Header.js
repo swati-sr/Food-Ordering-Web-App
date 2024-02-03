@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "./assets/logo.jpg";
-import style from "./styleComponent.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

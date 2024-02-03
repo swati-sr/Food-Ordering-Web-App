@@ -9,9 +9,10 @@ const Card = ({
   avgRatingString,
 }) => {
   return (
-    <div className="box">
+    <div className="w-48 border-t-4 border-[#83c5be] rounded-md  ">
       <ul>
         <img
+          className=""
           alt="restaurant Image"
           src={CLI_CLOUDINARY_IMAGE_ID + cloudinaryImageId}
         ></img>

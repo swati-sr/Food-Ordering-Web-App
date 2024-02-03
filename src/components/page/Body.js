@@ -18,20 +18,22 @@ const Body = () => {
     return <h2>Oopssss, Check your network issue !</h2>;
   }
 
-  return (
+  return !allRestroList ? (
+    <Shimmer />
+  ) : (
     <>
-      <div className="searchBar">
+      <div className="m-4 flex justify-center  ">
         <input
           type="text"
           placeholder="Search"
-          className="searchInput"
+          className=" shadow-transparent rounded-2xl divide-inherit pt-2 pb-2 pl-48 text-[#83c5be] font-normal w-4/12 border-y-4 border-[#83c5be] focus:border-x-4 outline-none"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
         <button
-          className="searchButton"
+          className="ml-2 font-bold text-[#83c5be] hover:text-[#006d77]"
           onClick={() => {
             const data = filteredData(searchText, allRestroList);
             setFilteredRestroList(data);
@@ -40,24 +42,24 @@ const Body = () => {
           Search
         </button>
       </div>
-      {allRestroList.length === 0 ? (
+      {/* {!allRestroList ? (
         <Shimmer />
-      ) : (
-        <div className="wrapper">
-          {filteredRestroList.map((restaurant) => {
-            return (
-              <>
-                <Link
-                  to={"/restaurant/" + restaurant?.info?.id}
-                  key={restaurant?.info?.id}
-                >
-                  <Card {...restaurant?.info} />
-                </Link>
-              </>
-            );
-          })}
-        </div>
-      )}
+      ) : ( */}
+      <div className="flex flex-wrap gap-8 justify-items-center pl-3 pr-3   pt-3">
+        {filteredRestroList.map((restaurant) => {
+          return (
+            <>
+              <Link
+                to={"/restaurant/" + restaurant?.info?.id}
+                key={restaurant?.info?.id}
+              >
+                <Card {...restaurant?.info} />
+              </Link>
+            </>
+          );
+        })}
+      </div>
+      {/* )} */}
     </>
   );
 };

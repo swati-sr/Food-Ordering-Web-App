@@ -15,28 +15,28 @@ import login from "./assets/login.png";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="flex justify-between items-center bg-[#83c5be] h-24 shadow-2xl sticky top-0">
+    <div className="flex justify-between items-center bg-[#fffcf2] h-24 shadow-2xl sticky top-0">
       <img className="h-14 w-16 pl-4   " alt="logo" src={logo}></img>
       {/* <Title /> */}
-      <ul className="flex gap-6 justify-center font-bold text-[#edf6f9] ">
-        <Link to="/" className="hover:text-[#006d77]">
+      <ul className="flex gap-6 justify-center font-bold text-[#252422] ">
+        <Link to="/" className="hover:text-[#eb5e28]">
           {" "}
           <li>Home</li>
         </Link>
-        <Link to="/about" className="hover:text-[#006d77]">
+        <Link to="/about" className="hover:text-[#eb5e28]">
           {" "}
           <li>About</li>
         </Link>
-        <Link to="/contact" className="hover:text-[#006d77]">
+        <Link to="/contact" className="hover:text-[#eb5e28]">
           {" "}
           <li>Contact</li>
         </Link>
-        <Link to="/instamart" className="hover:text-[#006d77]">
+        <Link to="/instamart" className="hover:text-[#eb5e28]">
           {" "}
           <li>Instamart</li>
         </Link>
       </ul>
-      <div className="pr-4 flex font-bold text-[#edf6f9] hover:text-[#006d77]">
+      <div className="pr-4 flex font-bold text-[#252422] hover:text-[#eb5e28]">
         {/* <img className="h-8" alt="Log In" src={login}></img> */}
         {isLoggedIn ? (
           <button onClick={() => setIsLoggedIn(false)}>Login</button>

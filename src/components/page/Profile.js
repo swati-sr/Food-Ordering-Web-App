@@ -17,7 +17,7 @@ class Profile extends React.Component {
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/swati-sr");
     const json = await data.json();
-    console.log(json);
+    console.log(json, "wwwwwwwwwwwwwwwww");
     this.setState({
       userInfo: {
         profileImage: json.avatar_url,

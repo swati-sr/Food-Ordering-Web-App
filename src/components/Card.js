@@ -9,17 +9,25 @@ const Card = ({
   avgRatingString,
 }) => {
   return (
-    <div className="w-48 border-t-4 border-[#83c5be] rounded-md  ">
-      <ul>
+    <div className="max-w-sm rounded-lg transition duration-300 hover:bg-[#fffcf2] hover:scale-110 cursor-pointer ">
+      <ul className="">
         <img
-          className=""
+          className="rounded-t-lg h-40"
           alt="restaurant Image"
           src={CLI_CLOUDINARY_IMAGE_ID + cloudinaryImageId}
         ></img>
-        <li>{name}</li>
-        <li>{areaName}</li>
-        <li>{cuisines.join(", ")}</li>
-        <li>{avgRatingString} stars</li>
+        <li className="mb-2 text-xl font-bold tracking-tight text-[#252422] dark:text-white text-wrap break-all">
+          {name}
+        </li>
+        <li className="mb-3 font-normal text-[gray]-700 dark:text-gray-400">
+          {areaName}
+        </li>
+        <li className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-wrap">
+          {cuisines.join(", ")}
+        </li>
+        <li className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          {avgRatingString} stars
+        </li>
       </ul>
     </div>
   );

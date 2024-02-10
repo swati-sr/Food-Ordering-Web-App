@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="flex bg-[#252422] mt-4 shadow-inner gap-40 justify-evenly pt-8 h-48">
+      <div className="flex bg-[#252422] mt-4 shadow-inner gap-40 justify-evenly pt-8 h-36 bottom-0 w-full fixed">
         <ul className="text-[#fffcf2] font-bold">
           <li>Food App by,</li>
           <li className="hover:text-[#eb5e28]">

@@ -23,7 +23,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="m-4 flex justify-center  ">
+      <div className="m-4 flex justify-center">
         <input
           type="text"
           placeholder="Search"
@@ -43,7 +43,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap gap-6 justify-items-center pl-3 pr-3 pt-3">
+      <div className="flex flex-wrap justify-between pl-3 pr-3 pt-3">
         {filteredRestroList.map((restaurant) => {
           return (
             <>

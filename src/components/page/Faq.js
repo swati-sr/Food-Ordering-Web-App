@@ -3,7 +3,7 @@ import { Component } from "react";
 // import Profile from "./Profile";
 // import { Outlet } from "react-router-dom";
 
-class About extends Component {
+class Faq extends Component {
   constructor(props) {
     super(props);
     console.log("Parent-Constructor");
@@ -56,4 +56,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Faq;

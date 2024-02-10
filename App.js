@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/page/Body";
-import About from "./src/components/page/About";
+import Faq from "./src/components/page/Faq";
 import Footer from "./src/components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./src/components/page/Error";
@@ -34,7 +34,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/frequent-questions",
-        element: <About />,
+        element: <Faq />,
       },
       {
         path: "/contact",

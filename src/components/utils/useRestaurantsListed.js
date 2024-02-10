@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CLI_RESTROLIST_URL } from "../constant";
 
 const useRestaurantsListed = () => {
-  const [allRestroList, setAllRestroList] = useState([]);
+  const [allRestroList, setAllRestroList] = useState(null);
   const [filteredRestroList, setFilteredRestroList] = useState([]);
 
   useEffect(() => {

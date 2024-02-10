@@ -7,10 +7,11 @@ import Footer from "./src/components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./src/components/page/Error";
 import RestaurantMenu from "./src/components/page/RestaurantMenu";
-import Profile from "./src/components/page/Profile";
 import Contact from "./src/components/page/Contact";
+import Shimmer from "./src/components/Shimmer";
 
 const Instamart = lazy(() => import("./src/components/page/Instamart"));
+const Profile = lazy(() => import("./src/components/page/Profile"));
 
 const Container = () => {
   return (
@@ -42,7 +43,12 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <Profile />,
+            element: (
+              <Suspense fallback={<Shimmer />}>
+                {" "}
+                <Profile />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -53,7 +59,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/instamart",
         element: (
-          <Suspense fallback={"Oopssss, this might take bit longer"}>
+          <Suspense fallback={<Shimmer />}>
             {" "}
             <Instamart />
           </Suspense>

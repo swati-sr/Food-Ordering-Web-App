@@ -1,23 +1,16 @@
 import React from "react";
 
 const Shimmer = () => {
-  // const shimmerEffect = {
-  //   backgroundColor: "lightgray",
-  //   height: "222px",
-  //   width: "208px",
-  //   margin: "20px",
-  // };
   return (
-    <div className="bg-[#dee2ff] h-56 w-52 m-5" data-testid="shimmer">
+    <div className="flex flex-wrap justify-between pl-3 pr-3 pt-3">
       {Array(10)
         .fill("")
-        .map((e, index) => {
+        .map((_, index) => (
           <div
             key={index}
-            className="shimmerEffect"
-            style={shimmerEffect}
-          ></div>;
-        })}
+            className="bg-[#dad2bc] h-56 w-60 m-5 max-w-sm rounded-t-lg"
+          ></div>
+        ))}
     </div>
   );
 };

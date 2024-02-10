@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useRestaurantsListed from "../utils/useRestaurantsListed";
 import useIsOnline from "../utils/useIsOnline";
-import RestaurantMenu from "./RestaurantMenu";
 
 //Default exported Component
 const Body = () => {
@@ -19,9 +18,7 @@ const Body = () => {
     return <h2>Oopssss, Check your network issue !</h2>;
   }
 
-  return !allRestroList ? (
-    <Shimmer />
-  ) : (
+  return (
     <>
       <div className="m-4 flex justify-center">
         <input
@@ -43,20 +40,24 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap justify-between pl-3 pr-3 pt-3">
-        {filteredRestroList.map((restaurant) => {
-          return (
-            <>
-              <Link
-                to={"/restaurant/" + restaurant?.info?.id}
-                key={restaurant?.info?.id}
-              >
-                <Card {...restaurant?.info} />
-              </Link>
-            </>
-          );
-        })}
-      </div>
+      {!allRestroList ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap justify-between pl-3 pr-3 pt-3">
+          {filteredRestroList.map((restaurant) => {
+            return (
+              <>
+                <Link
+                  to={"/restaurant/" + restaurant?.info?.id}
+                  key={restaurant?.info?.id}
+                >
+                  <Card {...restaurant?.info} />
+                </Link>
+              </>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

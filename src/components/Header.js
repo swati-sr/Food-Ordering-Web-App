@@ -1,8 +1,9 @@
 import React from "react";
 import logo from "./assets/logo.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import login from "./assets/login.png";
+import userContext from "./utils/userContext";
 
 // const Title = () => {
 //   return (
@@ -14,6 +15,7 @@ import login from "./assets/login.png";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { user } = useContext(userContext);
   return (
     <div className="flex justify-between items-center bg-[#fffcf2] h-24 shadow-2xl sticky top-0">
       <img className="h-14 w-16 pl-4   " alt="logo" src={logo}></img>
@@ -41,7 +43,7 @@ const Header = () => {
         {isLoggedIn ? (
           <button onClick={() => setIsLoggedIn(false)}>Login</button>
         ) : (
-          <button onClick={() => setIsLoggedIn(true)}>Logout</button>
+          <button onClick={() => setIsLoggedIn(true)}>{user.name}</button>
         )}
       </div>
     </div>

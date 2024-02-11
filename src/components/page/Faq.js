@@ -1,7 +1,5 @@
-//Creating a Class Bsed Component
+//Creating a Class Based Component
 import { Component } from "react";
-// import Profile from "./Profile";
-// import { Outlet } from "react-router-dom";
 
 class Faq extends Component {
   constructor(props) {

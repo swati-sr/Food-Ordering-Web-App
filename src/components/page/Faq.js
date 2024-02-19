@@ -1,6 +1,6 @@
 //Creating a Class Based Component
 import { Component } from "react";
-
+import userContext from "../utils/userContext";
 class Faq extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +47,9 @@ class Faq extends Component {
               </p>
             </li>
           </ul>
+          {/* <userContext.Consumer>
+            {({ user }) => <h4>{user.name}</h4>}
+          </userContext.Consumer> */}
         </div>
         {/* <Outlet /> */}
       </div>

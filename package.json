@@ -1,7 +1,7 @@
 {
   "name": "nmr",
   "version": "1.0.0",
-  "description": "My React course",
+  "description": "Food Web App",
   "main": "App.js",
   "scripts": {
     "test": "jest",
@@ -18,9 +18,11 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.0",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.2"
   },
   "browserlists": [

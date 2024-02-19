@@ -17,6 +17,11 @@ const useRestaurantMenu = (restId) => {
       json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
         ?.card?.itemCards
     );
+    console.log(
+      "DATA===>>>",
+      json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+        ?.card?.itemCards
+    );
   }
   return restaurantEat;
 };
